@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+div {
+  border: 1px solid red;
+}
+
+
+
+main {
+  flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-container {
+  border: 2px dashed blue;
+  flex-direction: row;
+}
