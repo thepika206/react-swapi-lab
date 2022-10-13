@@ -1,7 +1,9 @@
 import './App.css';
 import Header from './Components/Header/Header';
 import { Route, Routes } from 'react-router-dom';
-import AllShips from './pages/AllShips/AllShips';
+import StarshipList from './pages/StarshipList/StarshipList';
+import StarshipDetails from './pages/StarshipDetails/StarshipDetails';
+// import { Link } from 'react-router-dom';
 
 function App() {
   return (
@@ -10,8 +12,13 @@ function App() {
       <main>
         <Routes>
           <Route 
-            path='/AllShips' 
-            element={<AllShips/>}
+            path='/' 
+            element={<StarshipList/>}
+            >
+          </Route>
+          <Route 
+            path='/starship' 
+            element={<StarshipDetails/>}
             >
           </Route>
         </Routes>
