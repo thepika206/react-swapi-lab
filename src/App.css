@@ -33,7 +33,7 @@ main {
 .card {
   display: flex;
   flex-direction: column;
-  background-color: navy;
+  background-color: #282c34;
   color: white;
   align-items: center;
   justify-content: center;
