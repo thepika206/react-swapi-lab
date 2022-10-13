@@ -37,8 +37,9 @@ main {
   color: white;
   align-items: center;
   justify-content: center;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 20px;
+  /* padding-left: auto;
+  padding-right: auto; */
   padding-top: auto;
   padding-bottom: auto;
   margin: 10px;
@@ -52,4 +53,12 @@ main {
 
 div > a {
   color: white;
+}
+
+button {
+  background-color: #282c34;
+  color: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 25%;
 }

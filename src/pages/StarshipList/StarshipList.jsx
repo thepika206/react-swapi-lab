@@ -7,17 +7,39 @@ import { getStarships } from "../../services/api-calls"
 
 const StarshipList = () => {
   const [starships, setStarships] = useState([])
+  const [pageNumber, setPageNumber] = useState(1)
+  const [shipData, setShipData] = useState({})
+
   useEffect(() => {
-        const fetchStarshipData = async() => {
-        const starshipData = await getStarships()
-        setStarships(starshipData.results)
-      }
-      fetchStarshipData()
-  },[])
+    const fetchStarshipData = async(i) => {
+      const shipData = await getStarships(pageNumber)
+      setShipData(shipData)
+      setStarships(shipData.results)
+    }
+    fetchStarshipData()
+  },[pageNumber])
+
+  const handlePrevButton = () => {
+    if(pageNumber > 1)
+    setPageNumber(pageNumber - 1)
+  }
+  const handleNextButton = () => {
+    if(pageNumber < Math.ceil(shipData.count/10))
+    setPageNumber(pageNumber + 1)
+  }
   
   return (  
     <>
-      {!starships.length ? <p>A long time ago in a galaxy far away....</p> : <></> }
+      {!starships.length ? <p>A long time ago in a galaxy far away....</p> 
+      : 
+      <>
+      <div className="nav-buttons">
+        <button onClick={handlePrevButton} >Prev</button>
+        <button onClick={handleNextButton} >Next</button>
+      </div>
+      <div className="nav-buttons">
+        <p>Page: {pageNumber} of {Math.ceil(shipData.count/10)}</p>
+      </div>
       <div className="container">
           <>
           {
@@ -35,8 +57,10 @@ const StarshipList = () => {
           }
           </>
       </div>
+      </> 
+      }
     </>
-  );
+  )
 }
 
 export default StarshipList

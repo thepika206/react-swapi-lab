@@ -24,7 +24,6 @@ const StarshipDetails = () => {
         <h2>Starship details</h2>
         <h4>NAME: {location.state.starship.name}</h4>
         <h4>MODEL: {location.state.starship.model}</h4>
-        {/* <h4>MODEL: {starshipDetails.model}</h4> */}
         <Link
           to="/"
           >
