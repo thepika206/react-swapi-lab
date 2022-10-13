@@ -10,8 +10,8 @@ const StarshipList = () => {
 
   useEffect(() => {
     const fetchStarshipData = async() => {
-      const shipData = await getStarships(pageNumber)
-      setStarships(shipData)
+      const starshipData = await getStarships(pageNumber)
+      setStarships(starshipData)
     }
     fetchStarshipData()
   },[pageNumber])
