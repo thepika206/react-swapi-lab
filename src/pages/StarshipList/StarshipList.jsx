@@ -38,19 +38,19 @@ const StarshipList = () => {
             <p>Page: {pageNumber} of {Math.ceil(starships.count/10)}</p>
           </div>
           <div className="container">
-                {
-                  starships.results.map(starship => 
-                    <Link
-                    to="/starship"
-                    state={{starship: starship}}
-                    key={starship.name}
-                    >
-                      <div className="card">
-                        <h3>{starship.name}</h3>
-                      </div>  
-                    </Link>
-                  )
-                }
+            {
+              starships.results.map(starship => 
+                <Link
+                  to="/starship"
+                  state={{starship: starship}}
+                  key={starship.name}
+                >
+                  <div className="card">
+                    <h3>{starship.name}</h3>
+                  </div>  
+                </Link>
+              )
+            }
           </div>
         </> 
       }
