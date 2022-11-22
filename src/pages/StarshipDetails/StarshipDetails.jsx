@@ -12,7 +12,7 @@ const StarshipDetails = () => {
         <h4>NAME: {location.state.starship.name}</h4>
         <h4>MODEL: {location.state.starship.model}</h4>
         <Link
-          to="/"
+          to="/starships"
           >
           Back to All Starships
         </Link>

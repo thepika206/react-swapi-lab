@@ -6,6 +6,12 @@ async function getStarships(page) {
 
 }
 
+async function getPeople(page) {
+  const res = await fetch(`${baseUrl}/people/?page=${page}`)
+  return res.json()
+
+}
+
 async function getDetails(apiUrl) {
   const res = await fetch(`${apiUrl}`)
   return res.json()
@@ -14,4 +20,5 @@ async function getDetails(apiUrl) {
 export {
   getDetails,
   getStarships,
+  getPeople,
 }
