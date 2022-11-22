@@ -18,6 +18,10 @@ function App() {
             path='/'
             element={<Home/>}
           />
+          <Route
+            path='/home'
+            element={<Home/>}
+          />
           <Route 
             path='/starships' 
             element={<StarshipList/>}
