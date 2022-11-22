@@ -4,6 +4,18 @@ import { Link } from "react-router-dom"
 
 const StarshipDetails = () => {
   const location = useLocation()
+  // const pilotUrls = location.state.starship.pilots
+
+
+
+  // async function getPilots(urls) {
+  //   const promises = urls.map(url => fetch(url).then(res => res.json()))
+  //   const pilotObjects = await Promise.all(promises)
+  //   return pilotObjects
+  // }
+  
+  // getPilots(pilotUrls).then(pilots => console.log(pilots))
+
 
   return (  
     <div className="container-centered">
