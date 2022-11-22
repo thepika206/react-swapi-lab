@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { NavLink } from "react-router-dom"
+import NavList from "../NavList"
 
 const Header = () => {
   return (  
@@ -7,8 +8,15 @@ const Header = () => {
     <div className="App-header">
       <h1>STAR WARS STARSHIPS</h1>
       <nav>
-        <NavLink to="/starships">Starships</NavLink>
-        <NavLink to="/people">People TBD</NavLink>
+        <ul>
+          <li>
+            <NavLink to="/starships">Starships</NavLink>
+          </li>
+          <li>
+            <NavLink to="/people">People</NavLink>
+          </li>
+        </ul>
+        
       </nav>
     </div>
     </>
