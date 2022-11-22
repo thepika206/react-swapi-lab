@@ -62,3 +62,7 @@ button {
   padding: 10px;
   border-radius: 25%;
 }
+
+.is-active{
+  font-weight: bold;
+}

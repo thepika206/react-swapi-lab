@@ -1,0 +1,15 @@
+#title{
+  /* font-size: 100px; */
+  color:red
+}
+
+.nav-item{
+  color: white;
+  margin-left: 10px ;
+  text-decoration: none;
+}
+
+.active{
+  font-weight: bold;
+  text-decoration: underline;
+}
