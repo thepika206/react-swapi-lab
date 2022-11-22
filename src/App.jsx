@@ -5,6 +5,7 @@ import StarshipList from './pages/StarshipList/StarshipList';
 import PeopleList from './pages/PeopleList/PeopleList';
 import StarshipDetails from './pages/StarshipDetails/StarshipDetails';
 import PersonDetails from './pages/PersonDetails/PersonDetails';
+import Home from './pages/Home';
 // import { Link } from 'react-router-dom';
 
 function App() {
@@ -13,26 +14,27 @@ function App() {
       <Header />
       <main>
         <Routes>
+          <Route
+            path='/'
+            element={<Home/>}
+          />
           <Route 
             path='/starships' 
             element={<StarshipList/>}
-            >
-          </Route>
+          />
+          
           <Route 
             path='/starship' 
             element={<StarshipDetails/>}
-            >
-          </Route>
+          />
           <Route 
             path='/people' 
             element={<PeopleList/>}
-            >
-          </Route>
+          />
           <Route 
             path='/person' 
             element={<PersonDetails/>}
-            >
-          </Route>
+          />
         </Routes>
       </main>
     </> 
