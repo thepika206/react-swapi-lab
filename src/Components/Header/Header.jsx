@@ -7,7 +7,7 @@ const Header = () => {
       <header className="App-header">
         <h1 id="title" >STAR WARS FAN PAGE</h1>
         <nav>
-          <NavLink to="/" className='nav-item'>Home</NavLink>
+          <NavLink end to="/" className='nav-item'>Home</NavLink>
           <NavLink to="/starships" className='nav-item'>Starships</NavLink>
           <NavLink to="/people" className='nav-item'>People</NavLink>
         </nav>

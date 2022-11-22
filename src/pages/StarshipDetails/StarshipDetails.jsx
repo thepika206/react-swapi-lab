@@ -6,7 +6,7 @@ const StarshipDetails = () => {
   const location = useLocation()
 
   return (  
-    <>
+    <div className="container-centered">
       <div className="card card-big">
         <h2>Starship details</h2>
         <h4>NAME: {location.state.starship.name}</h4>
@@ -17,7 +17,8 @@ const StarshipDetails = () => {
           Back to All Starships
         </Link>
       </div>
-    </>
+    </div>  
+    
   )
 }
 

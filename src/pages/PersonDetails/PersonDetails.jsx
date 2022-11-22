@@ -6,7 +6,7 @@ const PersonDetails = () => {
   const location = useLocation()
 
   return (  
-    <>
+    <div className="container-centered">
       <div className="card card-big">
         <h2>Person details</h2>
         <h4>NAME: {location.state.person.name}</h4>
@@ -20,7 +20,7 @@ const PersonDetails = () => {
           Back to All People
         </Link>
       </div>
-    </>
+    </div>
   )
 }
 

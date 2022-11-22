@@ -41,7 +41,7 @@ main {
 
 .card-big{
   min-height: 300px;
-  min-width: 50%;
+  width: 300px;
 }
 
 div > a {
