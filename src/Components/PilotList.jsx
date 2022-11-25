@@ -7,7 +7,10 @@ const PilotList = (props) => {
         (props.pilots.length===0) 
         ? <p>no pilots</p> 
         : 
-        props.pilots.map(pilot => <p>{pilot.name}</p>)
+        props.pilots.map(pilot => 
+          <p
+            key = {pilot.name}
+          >{pilot.name}</p>)
         
         
       }
