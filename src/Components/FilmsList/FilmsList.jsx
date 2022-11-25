@@ -5,7 +5,7 @@ const FilmList = (props) => {
       {
         
         (props.films.length===0) 
-        ? <p>no films</p> 
+        ? <p>loading films data</p> 
         : 
         props.films.map(film => 
           <p
