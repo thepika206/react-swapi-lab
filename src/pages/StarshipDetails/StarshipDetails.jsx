@@ -35,9 +35,12 @@ const StarshipDetails = () => {
   return (  
     <div className="container-centered">
       <div className="card card-big">
-        <h2>Starship details</h2>
-        <h4>NAME: {location.state.starship.name}</h4>
+        <h2>NAME: {location.state.starship.name}</h2>
+        {/* <h3>Starship details</h3> */}
         <h4>MODEL: {location.state.starship.model}</h4>
+        <h4>MANUFACTURER: {location.state.starship.manufacturer}</h4>
+        <h4>LENGTH: {location.state.starship.length}</h4>
+        <h4>CREW: {location.state.starship.crew}</h4>
         <PilotList
           pilots = {pilots}
         />
