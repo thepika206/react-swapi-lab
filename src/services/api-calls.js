@@ -12,10 +12,10 @@ async function getPeople(page) {
 
 }
 
-async function getPilots(urls) {
+async function getRelatedObjects(urls) {
   const promises = urls.map(url => fetch(url).then(res => res.json()))
-  const pilotObjects = await Promise.all(promises)
-  return pilotObjects
+  const relatedObjects = await Promise.all(promises)
+  return relatedObjects
 }
 
 async function getDetails(apiUrl) {
@@ -27,5 +27,5 @@ export {
   getDetails,
   getStarships,
   getPeople,
-  getPilots,
+  getRelatedObjects,
 }

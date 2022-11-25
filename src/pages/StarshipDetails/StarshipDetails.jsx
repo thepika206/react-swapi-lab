@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom"
 import { Link } from "react-router-dom"
 import PilotList from "../../Components/PilotList"
-import { getPilots } from "../../services/api-calls"
+import { getRelatedObjects } from "../../services/api-calls"
 import { useEffect, useState } from "react"
 
 
@@ -11,7 +11,7 @@ const StarshipDetails = () => {
   const pilotUrls = location.state.starship.pilots
   useEffect(() =>{
     const fetchPilotData = async() => {
-      const pilotData = await getPilots(pilotUrls)
+      const pilotData = await getRelatedObjects(pilotUrls)
       setPilots(pilotData)
     }
     fetchPilotData()
