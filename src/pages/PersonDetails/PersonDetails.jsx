@@ -3,12 +3,14 @@ import { Link } from "react-router-dom"
 import FilmList from "../../Components/FilmsList/FilmsList"
 import { useEffect, useState } from "react"
 import { getRelatedObjects } from "../../services/api-calls"
+import { getDetails } from "../../services/api-calls"
 
 
 const PersonDetails = () => {
   const location = useLocation()
   const [films, setFilms] = useState([])
   const filmUrls = location.state.person.films
+  const [homeWorld, setHomeWorld] = useState()
 
   useEffect(() =>{
     const fetchFilmData = async() => {
@@ -18,15 +20,23 @@ const PersonDetails = () => {
     fetchFilmData()
   },[filmUrls])
 
+  useEffect(() => {
+    const fetchHomeWorld = async() =>{
+      const homeWorldData = await getDetails(location.state.person.homeworld)
+      setHomeWorld(homeWorldData)
+    }
+    fetchHomeWorld()
+  }, [location.state.person.homeworld]);
+
   return (  
     <div className="container-centered">
       <div className="card card-big">
-        <h2>Person details</h2>
+        <h2>Personal File</h2>
         <h4>NAME: {location.state.person.name}</h4>
         <h4>GENDER: {location.state.person.gender}</h4>
-        <h4>HEIGHT: {location.state.person.height}</h4>
-        <h4>MASS: {location.state.person.mass}</h4>
-        {/* <h4>HOMEWORLD: {location.state.person.homeworld}</h4> */}
+        <h4>HEIGHT: {location.state.person.height} CM</h4>
+        <h4>MASS: {location.state.person.mass} KG</h4>
+        <h4>HOMEWORLD: {homeWorld.name}</h4>
         <FilmList
           films = {films}
         />
