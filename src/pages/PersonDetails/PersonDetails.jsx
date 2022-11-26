@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom"
 import { Link } from "react-router-dom"
-import FilmList from "../../Components/FilmsList/FilmsList"
 import { useEffect, useState } from "react"
 import { getRelatedObjects } from "../../services/api-calls"
 import { getDetails } from "../../services/api-calls"
+import FilmList from "../../Components/FilmsList/FilmsList"
 
 
 const PersonDetails = () => {
@@ -36,7 +36,10 @@ const PersonDetails = () => {
         <h4>GENDER: {location.state.person.gender}</h4>
         <h4>HEIGHT: {location.state.person.height} CM</h4>
         <h4>MASS: {location.state.person.mass} KG</h4>
-        <h4>HOMEWORLD: {homeWorld.name}</h4>
+        <h4>HOMEWORLD:</h4> 
+        {
+          (!homeWorld)? <p></p>:<p>{homeWorld.name}</p>     
+        }
         <FilmList
           films = {films}
         />
