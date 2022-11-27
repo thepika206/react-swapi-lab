@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom"
 import { Link } from "react-router-dom"
-import PilotList from "../../Components/PilotList"
+import PilotList from "../../Components/PilotList/PilotList"
 import FilmList from "../../Components/FilmsList/FilmsList"
 import { getRelatedObjects } from "../../services/api-calls"
 import { useEffect, useState } from "react"
