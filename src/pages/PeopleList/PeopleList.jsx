@@ -27,7 +27,10 @@ const PeopleList = () => {
   return (  
     <>
       {
-        (!people.results) ? <p>A long time ago in a galaxy far away....</p> 
+        (!people.results) 
+        ? <div className="container-centered">
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+          </div>
         :<>
           <div className="nav-buttons">
             <button onClick={handlePrevButton} >Prev</button>

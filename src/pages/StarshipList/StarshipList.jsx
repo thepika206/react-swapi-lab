@@ -28,7 +28,10 @@ const StarshipList = () => {
   return (  
     <>
       {
-        (!starships.results) ? <p>A long time ago in a galaxy far away....</p> 
+        (!starships.results) 
+        ? <div className="container-centered">
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+          </div>
         :<>
           <div className="nav-buttons">
             <button onClick={handlePrevButton} >Prev</button>
