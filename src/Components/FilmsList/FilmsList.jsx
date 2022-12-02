@@ -4,7 +4,7 @@ const FilmList = (props) => {
       <h3>Film List</h3>
       {
         (props.films.length===0) 
-          ? <div class="lds-ripple"><div></div><div></div></div>
+          ? <div className="lds-ripple"><div></div><div></div></div>
           :props.films.map(film => 
             <p
               key = {film.title}
