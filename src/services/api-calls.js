@@ -1,4 +1,4 @@
-const baseUrl = "https://swapi.dev/api"
+const baseUrl = "https://swapi.py4e.com/api"
 
 async function getStarships(page) {
   const res = await fetch(`${baseUrl}/starships/?page=${page}`)
