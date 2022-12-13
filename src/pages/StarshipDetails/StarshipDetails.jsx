@@ -1,10 +1,8 @@
 import { useParams } from "react-router-dom"
-// import { useLocation } from "react-router-dom"
 import { Link } from "react-router-dom"
 import PilotList from "../../Components/PilotList/PilotList"
 import FilmList from "../../Components/FilmsList/FilmsList"
 import { getRelatedObjects } from "../../services/api-calls"
-// import { getDetails } from "../../services/api-calls"
 import { useEffect, useState } from "react"
 import { getStarshipDetails } from "../../services/api-calls"
 
@@ -13,21 +11,16 @@ import { getStarshipDetails } from "../../services/api-calls"
 const StarshipDetails = (props) => {
   const [pilots, setPilots] = useState([])
   const [films, setFilms] = useState([])
-  // const location = useLocation()
-  // const pilotUrls = location.state.starship.pilots
-  // const filmUrls = location.state.starship.films
   const [starshipDetails, setStarshipDetails] = useState ({})
   const { starshipId } = useParams()
   
   useEffect(()=>{
     const fetchStarshipData = async()=>{
       const starshipData = await getStarshipDetails(starshipId)
-      // console.log(starshipData)
       setStarshipDetails(starshipData)
 
     }
     fetchStarshipData()
-    // console.log(starshipDetails)
   },[starshipId])
 
   useEffect(() =>{
@@ -36,7 +29,6 @@ const StarshipDetails = (props) => {
       setPilots(pilotData)
     }
     if(starshipDetails.pilots?.length>0){
-      console.log('fetch pilot list')
       fetchPilotData()
     }
   },[starshipDetails.pilots])
@@ -57,7 +49,6 @@ const StarshipDetails = (props) => {
     <div className="container-centered">
       <div className="card card-big">
         <h2>{starshipDetails.name}</h2>
-        {/* <h3>Starship details</h3> */}
         <h4>MODEL: {starshipDetails.model}</h4>
         <h4>MANUFACTURER: {starshipDetails.manufacturer}</h4>
         <h4>LENGTH: {starshipDetails.length}</h4>
