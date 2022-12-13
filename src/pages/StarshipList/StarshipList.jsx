@@ -44,7 +44,7 @@ const StarshipList = () => {
             {
               starships.results.map(starship => 
                 <Link
-                  to="/starship"
+                  to={`/starship/${starship.url.slice(37)}`}
                   state={{starship}}
                   key={starship.name}
                 >
