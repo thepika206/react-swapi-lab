@@ -54,7 +54,16 @@ button {
   color: white;
   margin: 10px;
   padding: 10px;
-  border-radius: 25%;
+  border-radius: 25px;
+}
+
+button:hover {
+  color: #282c34;
+  background-color: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 25px;
+  cursor: pointer;
 }
 
 .is-active{

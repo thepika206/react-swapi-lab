@@ -69,12 +69,14 @@ const PersonDetails = () => {
         <PilotStarshipList
           starships = {starships}
         />
+      </div>
         <Link
           to="/people"
           >
-          Back to All People
+          <button>
+            Back to All People
+          </button>
         </Link>
-      </div>
     </div>
   )
 }
