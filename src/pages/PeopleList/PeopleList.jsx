@@ -43,7 +43,7 @@ const PeopleList = () => {
             {
               people.results.map(person => 
                 <Link
-                  to="/person"
+                  to={`${person.url.slice(34)}`}
                   state={{person: person}}
                   key={person.name}
                 >

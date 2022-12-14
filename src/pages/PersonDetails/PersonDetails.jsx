@@ -1,41 +1,53 @@
-import { useLocation } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { getRelatedObjects } from "../../services/api-calls"
 import { getDetails } from "../../services/api-calls"
 import FilmList from "../../Components/FilmsList/FilmsList"
+import { getResourceDetails } from "../../services/api-calls"
 
 
 const PersonDetails = () => {
-  const location = useLocation()
+  // const location = useLocation()
   const [films, setFilms] = useState([])
-  const filmUrls = location.state.person.films
+  // const filmUrls = location.state.person.films
   const [homeWorld, setHomeWorld] = useState()
+  const [personDetails, setPersonDetails] = useState({})
+  const { personId } = useParams()
+
+  useEffect(() => {
+    const fetchPersonData = async()=>{
+      const personData = await getResourceDetails("people", personId)
+      setPersonDetails(personData)
+
+    }
+    fetchPersonData()
+  }, [personId]);
 
   useEffect(() =>{
     const fetchFilmData = async() => {
-      const filmData = await getRelatedObjects(filmUrls)
+      const filmData = await getRelatedObjects(personDetails.films)
       setFilms(filmData)
     }
+    if (personDetails.films?.length>0)
     fetchFilmData()
-  },[filmUrls])
+  },[personDetails.films])
 
   useEffect(() => {
     const fetchHomeWorld = async() =>{
-      const homeWorldData = await getDetails(location.state.person.homeworld)
+      const homeWorldData = await getDetails(personDetails.homeworld)
       setHomeWorld(homeWorldData)
     }
-    fetchHomeWorld()
-  }, [location.state.person.homeworld]);
+    if(!!personDetails.homeworld)fetchHomeWorld()
+  }, [personDetails.homeworld]);
 
   return (  
     <div className="container-centered">
       <div className="card card-big">
-        <h2>Personal File</h2>
-        <h4>NAME: {location.state.person.name}</h4>
-        <h4>GENDER: {location.state.person.gender}</h4>
-        <h4>HEIGHT: {location.state.person.height} CM</h4>
-        <h4>MASS: {location.state.person.mass} KG</h4>
+        <h2>{personDetails.name}</h2>
+        <h4>GENDER: {personDetails.gender}</h4>
+        <h4>HEIGHT: {personDetails.height} CM</h4>
+        <h4>MASS: {personDetails.mass} KG</h4>
         <h4>HOMEWORLD:</h4> 
         {
           (!homeWorld)? <p></p>:<p>{homeWorld.name}</p>     

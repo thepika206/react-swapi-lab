@@ -4,7 +4,8 @@ import PilotList from "../../Components/PilotList/PilotList"
 import FilmList from "../../Components/FilmsList/FilmsList"
 import { getRelatedObjects } from "../../services/api-calls"
 import { useEffect, useState } from "react"
-import { getStarshipDetails } from "../../services/api-calls"
+// import { getStarshipDetails } from "../../services/api-calls"
+import { getResourceDetails } from "../../services/api-calls"
 
 
 
@@ -16,7 +17,8 @@ const StarshipDetails = (props) => {
   
   useEffect(()=>{
     const fetchStarshipData = async()=>{
-      const starshipData = await getStarshipDetails(starshipId)
+      // const starshipData = await getStarshipDetails(starshipId)
+      const starshipData = await getResourceDetails("starships", starshipId)
       setStarshipDetails(starshipData)
 
     }

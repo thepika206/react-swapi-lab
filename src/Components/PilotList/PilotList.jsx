@@ -8,9 +8,14 @@ const PilotList = (props) => {
         ? <p>no pilots</p> 
         : 
         props.pilots.map(pilot => 
-          <p
+          <a href={`/people/${pilot.url.slice(34)}`}
             key = {pilot.name}
-          >{pilot.name}</p>)
+          >
+            <p
+              
+            >{pilot.name}</p>
+          </a>
+        )
         
         
       }

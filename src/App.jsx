@@ -36,7 +36,7 @@ function App() {
             element={<PeopleList/>}
           />
           <Route 
-            path='/person' 
+            path='/people/:personId' 
             element={<PersonDetails/>}
           />
         </Routes>
