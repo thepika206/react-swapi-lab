@@ -70,13 +70,13 @@ const PersonDetails = () => {
           starships = {starships}
         />
       </div>
-        <Link
-          to="/people"
-          >
-          <button>
-            Back to All People
-          </button>
-        </Link>
+      <Link
+        to="/people"
+        >
+        <button>
+          Back to All People
+        </button>
+      </Link>
     </div>
   )
 }

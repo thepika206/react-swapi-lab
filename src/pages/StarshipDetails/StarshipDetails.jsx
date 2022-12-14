@@ -62,13 +62,13 @@ const StarshipDetails = (props) => {
           films = {films}
         />
       </div>
-        <Link
-          to="/starships"
-        >
-          <button>
-            Back to All Starships
-          </button>
-        </Link>
+      <Link
+        to="/starships"
+      >
+        <button>
+          Back to All Starships
+        </button>
+      </Link>
     </div>  
     
   )
