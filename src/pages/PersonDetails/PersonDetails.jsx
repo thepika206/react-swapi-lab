@@ -5,7 +5,7 @@ import { getRelatedObjects } from "../../services/api-calls"
 import { getDetails } from "../../services/api-calls"
 import FilmList from "../../Components/FilmsList/FilmsList"
 import { getResourceDetails } from "../../services/api-calls"
-import PilotStarshipList from "../../Components/StarshipList/StarshipList"
+import PilotStarshipList from "../../Components/PilotStarshipList/PilotStarshipList"
 
 
 const PersonDetails = () => {
