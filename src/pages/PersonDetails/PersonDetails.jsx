@@ -5,11 +5,13 @@ import { getRelatedObjects } from "../../services/api-calls"
 import { getDetails } from "../../services/api-calls"
 import FilmList from "../../Components/FilmsList/FilmsList"
 import { getResourceDetails } from "../../services/api-calls"
+import PilotStarshipList from "../../Components/StarshipList/StarshipList"
 
 
 const PersonDetails = () => {
   // const location = useLocation()
   const [films, setFilms] = useState([])
+  const [starships, setStarships] = useState([])
   // const filmUrls = location.state.person.films
   const [homeWorld, setHomeWorld] = useState()
   const [personDetails, setPersonDetails] = useState({})
@@ -33,6 +35,15 @@ const PersonDetails = () => {
     fetchFilmData()
   },[personDetails.films])
 
+  useEffect(() =>{
+    const fetchStarshipData = async() => {
+      const starshipData = await getRelatedObjects(personDetails.starships)
+      setStarships(starshipData)
+    }
+    if (personDetails.starships?.length>0)
+    fetchStarshipData()
+  },[personDetails.starships])
+
   useEffect(() => {
     const fetchHomeWorld = async() =>{
       const homeWorldData = await getDetails(personDetails.homeworld)
@@ -54,6 +65,9 @@ const PersonDetails = () => {
         }
         <FilmList
           films = {films}
+        />
+        <PilotStarshipList
+          starships = {starships}
         />
         <Link
           to="/people"

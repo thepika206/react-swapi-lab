@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const PilotList = (props) => {
   return (  
     <>
@@ -8,13 +9,12 @@ const PilotList = (props) => {
         ? <p>no pilots</p> 
         : 
         props.pilots.map(pilot => 
-          <a href={`/people/${pilot.url.slice(34)}`}
+          <Link
+            to={`/people/${pilot.url.slice(34)}`}
             key = {pilot.name}
           >
-            <p
-              
-            >{pilot.name}</p>
-          </a>
+            <p>{pilot.name}</p>
+          </Link>
         )
         
         
