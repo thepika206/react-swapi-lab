@@ -5,7 +5,7 @@ import StarshipList from './pages/StarshipList/StarshipList';
 import PeopleList from './pages/PeopleList/PeopleList';
 import StarshipDetails from './pages/StarshipDetails/StarshipDetails';
 import PersonDetails from './pages/PersonDetails/PersonDetails';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 // import { Link } from 'react-router-dom';
 
 function App() {

@@ -11,6 +11,7 @@
 - HTML, CSS, JavaScript
 - 3rd party API consumption
 - Loading spinners
+- Cypress Test Automation
 
 
 # Credits
