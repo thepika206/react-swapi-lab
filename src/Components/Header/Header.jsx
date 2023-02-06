@@ -7,9 +7,9 @@ const Header = () => {
       <header className="App-header">
         <h1 id="title" >STAR WARS FAN PAGE</h1>
         <nav>
-          <NavLink end to="/" className='nav-item'>Home</NavLink>
-          <NavLink to="/starships" className='nav-item'>Starships</NavLink>
-          <NavLink to="/people" className='nav-item'>People</NavLink>
+          <NavLink id='home-nav-item' end to="/" className='nav-item'>Home</NavLink>
+          <NavLink id='starships-nav-item' to="/starships" className='nav-item'>Starships</NavLink>
+          <NavLink id='people-nav-item' to="/people" className='nav-item'>People</NavLink>
         </nav>
       </header>
   )
