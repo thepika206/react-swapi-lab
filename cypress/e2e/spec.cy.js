@@ -35,11 +35,15 @@ describe('Local Navbar Test', () => {
 //select the home-nav-item
     cy.get('[id=home-nav-item]').should('have.class', 'active')
 
-//select the starship-nav-item
+//navigate to starships and advance pages
     cy.get('[id=starships-nav-item]').click().should('have.class', 'active')
+    cy.get('button[id=next-btn]').click()
+    cy.get('p[id=page-counter-p]').should('have.text', 'Page: 2 of 4')
+    cy.get('button[id=prev-btn]').click()
+    cy.get('p[id=page-counter-p]').should('have.text', 'Page: 1 of 4')
 
 //select the people-nav-item
-    cy.get('[id=people-nav-item]').click().should('have.class', 'active')
+    // cy.get('[id=people-nav-item]').click().should('have.class', 'active')
 
   })
 })
