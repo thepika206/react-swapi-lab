@@ -28,7 +28,7 @@ function App() {
           />
           
           <Route 
-            path='/starship/:starshipId' 
+            path='/starships/:starshipId' 
             element={<StarshipDetails/>}
           />
           <Route 

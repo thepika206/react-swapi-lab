@@ -25,6 +25,7 @@ const StarshipList = () => {
     setPageNumber(pageNumber + 1)
   }
   
+  
   return (  
     <>
       {
@@ -44,7 +45,8 @@ const StarshipList = () => {
             {
               starships.results.map(starship => 
                 <Link
-                  to={`/starship/${starship.url.slice(37)}`}
+                //starship.url eg: https://swapi.py4e.com/api/starships/2/
+                  to={`/starships/${starship.url.slice(37)}`}
                   state={{starship}}
                   key={starship.name}
                 >

@@ -1,19 +1,56 @@
 const baseUrl = "https://swapi.py4e.com/api"
 
 async function getStarships(page) {
-  const res = await fetch(`${baseUrl}/starships/?page=${page}`)
-  return res.json()
+
+  try {
+    // Check Local Storage for data first
+    let cachedResource = localStorage.getItem(`starship-list-${page}`)
+    if (cachedResource != null) {
+      return JSON.parse(cachedResource)
+    }
+
+    // Make a fetch request for the data
+    const res = await fetch(`${baseUrl}/starships/?page=${page}`)
+
+    // parse the response
+    const data = await res.json()
+
+    // Store the data in local storage
+    localStorage.setItem(`starship-list-${page}`, JSON.stringify(data))
+
+    // return the resource data
+    return data
+  } catch (error) {
+    console.log(error)
+    return null
+  }
 
 }
 
-async function getStarshipDetails(starshipId){
-  const res = await fetch(`${baseUrl}/starships/${starshipId}`)
-  return res.json()
-}
 async function getResourceDetails(resource, id){
-  console.log(`get details for ${resource}/${id}`)
-  const res = await fetch(`${baseUrl}/${resource}/${id}`)
-  return res.json()
+
+  try {
+    // Check Local Storage for data first
+    let cachedResource = localStorage.getItem(`${resource}-${id}`)
+    if (cachedResource != null) {
+      return JSON.parse(cachedResource)
+    }
+    
+    // Make a Fetch request for the data 
+    const res = await fetch(`${baseUrl}/${resource}/${id}/`)
+    
+    // parse the json
+    const data = await res.json()
+    
+    // Store the data in local storage
+    localStorage.setItem(`${resource}-${id}`, JSON.stringify(data))
+
+    // return the resource data
+    return data
+  } catch (error){
+    console.log(error)
+    return null
+  }
 }
 
 async function getPeople(page) {
@@ -29,7 +66,6 @@ async function getRelatedObjects(urls) {
 }
 
 async function getDetails(apiUrl) {
-  console.log('get details runs')
   const res = await fetch(`${apiUrl}`)
   return res.json()
 }
@@ -37,7 +73,6 @@ async function getDetails(apiUrl) {
 export {
   getDetails,
   getStarships,
-  getStarshipDetails,
   getResourceDetails,
   getPeople,
   getRelatedObjects,
