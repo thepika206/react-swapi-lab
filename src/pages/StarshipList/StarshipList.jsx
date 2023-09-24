@@ -35,11 +35,11 @@ const StarshipList = () => {
           </div>
         :<>
           <div className="nav-buttons">
-            <button onClick={handlePrevButton} >Prev</button>
-            <button onClick={handleNextButton} >Next</button>
+            <button id='prev-btn' onClick={handlePrevButton} >Prev</button>
+            <button id='next-btn' onClick={handleNextButton} >Next</button>
           </div>
           <div className="nav-buttons">
-            <p>Page: {pageNumber} of {Math.ceil(starships.count/10)}</p>
+            <p id='page-counter-p'>Page: {pageNumber} of {Math.ceil(starships.count/10)}</p>
           </div>
           <div className="container">
             {
