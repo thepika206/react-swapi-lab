@@ -4,7 +4,6 @@ import Header from "../Components/Header/Header";
 const RootLayout = () => {
     return (
         <div>
-            Layout
             <Header></Header>
             <Outlet/>
         </div>
