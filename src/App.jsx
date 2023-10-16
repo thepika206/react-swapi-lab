@@ -7,7 +7,6 @@ import PersonDetails from './pages/PersonDetails/PersonDetails';
 import Home from './pages/Home/Home';
 import PageNotFound from './pages/Error/PageNotFound';
 import RootLayout from './Layouts/RootLayout';
-import FallbackSpinner from './pages/Loading/FallbackSpinner';
 
 
 function App() {
@@ -42,7 +41,7 @@ function App() {
 
     return (
         <>
-            <RouterProvider router={router} fallbackElement={<FallbackSpinner />} />
+            <RouterProvider router={router} />
         </>
 
     )
