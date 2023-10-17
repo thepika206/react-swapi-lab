@@ -1,27 +1,30 @@
-import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { useLoaderData } from "react-router-dom"
+// import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom"
 import PilotList from "../../Components/PilotList/PilotList"
 import FilmList from "../../Components/FilmsList/FilmsList"
 import { getRelatedObjects } from "../../services/api-calls"
-import { useEffect, useState } from "react"
-import { getResourceDetails } from "../../services/api-calls"
+// import { getResourceDetails } from "../../services/api-calls"
 
 
 
 const StarshipDetails = (props) => {
   const [pilots, setPilots] = useState([])
   const [films, setFilms] = useState([])
-  const [starshipDetails, setStarshipDetails] = useState ({})
-  const { starshipId } = useParams()
-  
-  useEffect(()=>{
-    const fetchStarshipData = async()=>{
-      const starshipData = await getResourceDetails("starships", starshipId)
-      setStarshipDetails(starshipData)
+  // const [starshipDetails, setStarshipDetails] = useState ({})
+  // const { starshipId } = useParams()
 
-    }
-    fetchStarshipData()
-  },[starshipId])
+  const starshipDetails = useLoaderData()
+  
+  // useEffect(()=>{
+  //   const fetchStarshipData = async()=>{
+  //     const starshipData = await getResourceDetails("starships", starshipId)
+  //     setStarshipDetails(starshipData)
+
+  //   }
+  //   fetchStarshipData()
+  // },[starshipId])
 
   useEffect(() =>{
     const fetchPilotData = async() => {

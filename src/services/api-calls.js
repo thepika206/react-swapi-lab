@@ -28,7 +28,6 @@ async function getStarships(page) {
 }
 
 async function getResourceDetails(resource, id){
-
   try {
     // Check Local Storage for data first
     let cachedResource = localStorage.getItem(`${resource}-${id}`)
