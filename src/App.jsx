@@ -1,5 +1,5 @@
 import './App.css';
-import { createBrowserRouter, RouterProvider, useParams } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import StarshipList from './pages/StarshipList/StarshipList';
 import PeopleList from './pages/PeopleList/PeopleList';
 import StarshipDetails from './pages/StarshipDetails/StarshipDetails';
@@ -7,17 +7,20 @@ import PersonDetails from './pages/PersonDetails/PersonDetails';
 import Home from './pages/Home/Home';
 import PageNotFound from './pages/Error/PageNotFound';
 import RootLayout from './Layouts/RootLayout';
+import { starshipDetailsDataLoader } from './services/dataLoaders';
 
-import { getResourceDetails } from './services/api-calls';
 
 
 function App() {
-    const params = useParams()
     const router = createBrowserRouter([{
         path: '/',
         element: <RootLayout />,
         errorElement: <PageNotFound />,
         children: [
+            {
+                path: '/',
+                element: <Home />
+            },
             {
                 path: 'home',
                 element: <Home />
@@ -29,10 +32,7 @@ function App() {
             {
                 path: 'starships/:starshipId',
                 element: <StarshipDetails />,
-                loader: async ({params})=>{
-                    const data = await getResourceDetails('starships', params.starshipId)
-                    return data
-                }
+                loader: async ({params}) => starshipDetailsDataLoader(params.starshipId)
             },
             {
                 path: 'people',
@@ -41,7 +41,6 @@ function App() {
             {
                 path: 'people/:personId',
                 element: <PersonDetails />,
-                loader: getResourceDetails('people', params.personId)
             },
         ]
     }])
