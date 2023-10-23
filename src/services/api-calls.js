@@ -21,7 +21,7 @@ async function getStarships(page) {
     // return the resource data
     return data
   } catch (error) {
-    console.log(error)
+    console.error(error)
     return null
   }
 
@@ -47,7 +47,7 @@ async function getResourceDetails(resource, id){
     // return the resource data
     return data
   } catch (error){
-    console.log(error)
+    console.error(error)
     return null
   }
 }
