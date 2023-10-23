@@ -1,45 +1,42 @@
-import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { useLoaderData } from "react-router-dom"
 import { Link } from "react-router-dom"
 import PilotList from "../../Components/PilotList/PilotList"
 import FilmList from "../../Components/FilmsList/FilmsList"
 import { getRelatedObjects } from "../../services/api-calls"
-import { useEffect, useState } from "react"
-import { getResourceDetails } from "../../services/api-calls"
-
-
 
 const StarshipDetails = (props) => {
   const [pilots, setPilots] = useState([])
   const [films, setFilms] = useState([])
-  const [starshipDetails, setStarshipDetails] = useState ({})
-  const { starshipId } = useParams()
-  
-  useEffect(()=>{
-    const fetchStarshipData = async()=>{
-      const starshipData = await getResourceDetails("starships", starshipId)
-      setStarshipDetails(starshipData)
 
-    }
-    fetchStarshipData()
-  },[starshipId])
+  //route based fetch see starshipDetailsDataLoader
+  const starshipDetails = useLoaderData() 
 
   useEffect(() =>{
+    let mounted = true
     const fetchPilotData = async() => {
       const pilotData = await getRelatedObjects(starshipDetails.pilots)
-      setPilots(pilotData)
+      if (mounted) {
+        setPilots(pilotData)
+      }
     }
     if(starshipDetails.pilots?.length>0){
       fetchPilotData()
     }
+    return () => { mounted = false; }
   },[starshipDetails.pilots])
   
   useEffect(() =>{
+    let mounted = true
     const fetchFilmData = async() => {
       const filmData = await getRelatedObjects(starshipDetails.films)
-      setFilms(filmData)
+      if (mounted) {
+        setFilms(filmData)
+      }
     }
     if (starshipDetails.films?.length>0)
     fetchFilmData()
+    return () => { mounted = false; }
   },[starshipDetails.films])
 
   
